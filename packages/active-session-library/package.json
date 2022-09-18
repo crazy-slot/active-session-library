@@ -1,0 +1,45 @@
+{
+  "name": "active-session-library",
+  "version": "1.0.0",
+  "description": "Active session library",
+  "author": "crazy-slot",
+  "license": "MIT",
+  "repository": "crazy-slot/active-session-library",
+  "keywords": [
+    "react",
+    "nextjs",
+    "next.js",
+    "activity",
+    "active",
+    "timeout",
+    "session",
+    "timer",
+    "Active session",
+    "idle timer",
+    "session timeout"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.modern.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "lint": "eslint *.ts*"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.7",
+    "eslint": "^8.23.1",
+    "eslint-config-custom": "*",
+    "microbundle-crl": "^0.13.11",
+    "react": "^16.13.1",
+    "tsconfig": "*",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  }
+}

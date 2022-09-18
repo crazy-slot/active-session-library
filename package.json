@@ -1,0 +1,32 @@
+{
+  "name": "active-session-library",
+  "version": "1.0.x",
+  "private": true,
+  "author": "crazy-slot",
+  "license": "MIT",
+  "repository": "crazy-slot/active-session-library",
+  "workspaces": [
+    "examples/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.24.4",
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "resolutions": {
+    "nth-check": ">=2.0.1"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.19"
+}
