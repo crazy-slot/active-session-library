@@ -1,5 +1,11 @@
 # active-session-library
 
+## 1.0.1
+
+### Patch Changes
+
+- Add documentation
+
 ## 1.0.0
 
 ### Major Changes

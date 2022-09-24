@@ -1,7 +1,7 @@
 {
   "name": "active-session-library",
-  "version": "1.0.0",
-  "description": "Active session library",
+  "version": "1.0.1",
+  "description": "Active Session Library (ASL) is responsible for monitoring user activity and executing a callback when the user is not active in a given period of time.",
   "author": "crazy-slot",
   "license": "MIT",
   "repository": "crazy-slot/active-session-library",
@@ -41,5 +41,8 @@
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
