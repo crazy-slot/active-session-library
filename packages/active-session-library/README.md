@@ -33,7 +33,7 @@ import { ActiveSessionProvider } from 'active-session-library';
 
 ### Examples
 
-- `with-nextjs`: a [Next.js](https://github.com/crazy-slot/active-session-library/blob/main/examples/with-nextjs) app
+- [`with-nextjs`](https://codesandbox.io/s/active-session-library-with-nextjs-ioosv6): a [Next.js](https://github.com/crazy-slot/active-session-library/blob/main/examples/with-nextjs) app
 - `with-create-react-app`: a [create-react-app](https://github.com/crazy-slot/active-session-library/blob/main/examples/with-create-react-app) app
 
 ### API
