@@ -17,11 +17,11 @@
     "test": "turbo run test"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.4",
     "commitizen": "^4.2.5",
     "eslint-config-custom": "*",
     "git-cz": "^4.9.0",
     "prettier": "^2.7.1",
+    "standard-version": "^9.5.0",
     "turbo": "latest"
   },
   "engines": {
