@@ -27,7 +27,7 @@ export const useActiveSession = (postAction: () => void, timeout: number) => {
 		localStorage.setItem('lastEvent', String(eventDate));
 	};
 
-	const eventTrigger = useCallback(isActiveSession ? updateLastEvent : () => null, [isActiveSession]);
+	const eventTrigger = useCallback(updateLastEvent, []);
 
-	return { eventTrigger };
+	return { isActiveSession, eventTrigger };
 };
