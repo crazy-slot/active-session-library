@@ -1,13 +1,6 @@
 import React from 'react';
 import ActiveSession from './components/activeSession';
-
-export interface IActiveSessionProviderProps {
-	postAction: () => void;
-	preAction?: () => void;
-	isEnabled?: boolean;
-	timeout: number;
-	children?: React.ReactNode;
-}
+import type { IActiveSessionProviderProps } from './types';
 
 export const ActiveSessionProvider: React.FC<IActiveSessionProviderProps> = ({
 	children,
