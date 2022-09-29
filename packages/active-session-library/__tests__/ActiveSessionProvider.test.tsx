@@ -25,6 +25,7 @@ describe('ActiveSessionProvider', () => {
 					preAction={preActionMock}
 					postAction={postActionMock}
 					isEnabled={false}
+					events={['click', 'mousemove', 'keydown']}
 				>
 					<div>Here my component</div>
 				</ActiveSessionProvider>,
@@ -93,39 +94,6 @@ describe('ActiveSessionProvider', () => {
 	});
 
 	describe('ActiveSessionProvider is enabled', () => {
-		it('should display children', () => {
-			render(
-				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock} isEnabled>
-					<div>Here my component</div>
-				</ActiveSessionProvider>,
-			);
-
-			const children = screen.getAllByText('Here my component');
-
-			expect(children.length).toEqual(1);
-		});
-		it('should display children with isEnabled default value', () => {
-			render(
-				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock}>
-					<div>Here my component</div>
-				</ActiveSessionProvider>,
-			);
-
-			const children = screen.getAllByText('Here my component');
-
-			expect(children.length).toEqual(1);
-		});
-
-		it('should call preAction method', () => {
-			render(
-				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock} isEnabled>
-					<div>Here my component</div>
-				</ActiveSessionProvider>,
-			);
-
-			expect(preActionMock).toBeCalled();
-		});
-
 		it('should call postAction method after 5 minutes', () => {
 			act(() => {
 				render(
@@ -172,6 +140,96 @@ describe('ActiveSessionProvider', () => {
 
 				expect(postActionMock).toBeCalledTimes(1);
 			});
+		});
+
+		it('should call postAction method after 5 minutes if the user is active with keyboard events', () => {
+			act(() => {
+				render(
+					<ActiveSessionProvider
+						timeout={timeout}
+						preAction={preActionMock}
+						postAction={postActionMock}
+						events={['keydown']}
+						isEnabled
+					>
+						<div>Here my component</div>
+					</ActiveSessionProvider>,
+				);
+
+				jest.advanceTimersByTime(timeout - 1000);
+
+				expect(postActionMock).not.toBeCalled();
+
+				userEvent.keyboard('F');
+
+				jest.advanceTimersByTime(timeout - 1000);
+
+				expect(postActionMock).not.toBeCalled();
+
+				jest.advanceTimersByTime(2000);
+
+				expect(postActionMock).toBeCalled();
+			});
+		});
+
+		it('should call postAction method after 5 minutes if the user is active only by keyboard events', () => {
+			act(() => {
+				render(
+					<ActiveSessionProvider
+						timeout={timeout}
+						preAction={preActionMock}
+						postAction={postActionMock}
+						events={['click']}
+						isEnabled
+					>
+						<div>Here my component</div>
+					</ActiveSessionProvider>,
+				);
+
+				jest.advanceTimersByTime(timeout - 1000);
+
+				expect(postActionMock).not.toBeCalled();
+
+				userEvent.keyboard('F');
+
+				jest.advanceTimersByTime(5000);
+
+				expect(postActionMock).toBeCalled();
+			});
+		});
+
+		it('should display children', () => {
+			render(
+				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock} isEnabled>
+					<div>Here my component</div>
+				</ActiveSessionProvider>,
+			);
+
+			const children = screen.getAllByText('Here my component');
+
+			expect(children.length).toEqual(1);
+		});
+
+		it('should display children with isEnabled default value', () => {
+			render(
+				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock}>
+					<div>Here my component</div>
+				</ActiveSessionProvider>,
+			);
+
+			const children = screen.getAllByText('Here my component');
+
+			expect(children.length).toEqual(1);
+		});
+
+		it('should call preAction method', () => {
+			render(
+				<ActiveSessionProvider timeout={timeout} preAction={preActionMock} postAction={postActionMock} isEnabled>
+					<div>Here my component</div>
+				</ActiveSessionProvider>,
+			);
+
+			expect(preActionMock).toBeCalled();
 		});
 	});
 });
