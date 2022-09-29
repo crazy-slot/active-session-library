@@ -6,17 +6,11 @@ import type { EventType } from '../../types';
 interface IActiveSessionProps {
 	postAction: () => void;
 	timeout: number;
+	events: EventType[];
 	preAction?: () => void;
-	events?: EventType[];
 }
 
-export const ActiveSession: React.FC<IActiveSessionProps> = ({
-	children,
-	timeout,
-	postAction,
-	preAction,
-	events = DEFAULT_EVENTS,
-}) => {
+export const ActiveSession: React.FC<IActiveSessionProps> = ({ children, timeout, postAction, preAction, events }) => {
 	const { eventTrigger, isActiveSession } = useActiveSession(postAction, timeout);
 
 	React.useEffect(() => {

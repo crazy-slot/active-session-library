@@ -124,5 +124,6 @@ export interface IActiveSessionProviderProps {
 	preAction?: () => void;
 	isEnabled?: boolean;
 	timeout: number;
+	events?: EventType[];
 	children?: React.ReactNode;
 }
