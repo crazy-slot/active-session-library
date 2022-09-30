@@ -5,6 +5,10 @@
 
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
+	watchAll: false,
+
+	watch: false,
+
 	clearMocks: true,
 
 	// Indicates whether the coverage information should be collected while executing the test
