@@ -11,6 +11,8 @@ export const Web = () => {
 				postAction={() => {
 					router.push('/logout');
 				}}
+				events={['click', 'mousemove', 'keydown', 'scroll', 'drag']}
+				isEnabled
 			>
 				<div>Secured Page</div>
 			</ActiveSessionProvider>
