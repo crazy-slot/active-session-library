@@ -13,6 +13,7 @@ const App: React.FC = () => {
 				postAction={() => {
 					console.log('redirect to logout');
 				}}
+				events={['click', 'mousemove', 'keydown', 'scroll', 'drag']}
 			>
 				<div>Secured Page</div>
 			</ActiveSessionProvider>
