@@ -36,7 +36,7 @@ import { ActiveSessionProvider } from 'active-session-library';
 		console.log('preAction ...');
 	}}
 	isEnabled
-    events={['click', 'mousemove', 'keydown', 'scroll', 'drag']}
+	events={['click', 'mousemove', 'keydown', 'scroll', 'drag']}
 >
 	<div>Secured Page</div>
 </ActiveSessionProvider>;
@@ -53,14 +53,14 @@ Active Session Library (ASL) exports its `IActiveSessionProviderProps` interface
 
 All the props you will need are outlined below:
 
-| **Props**  |                                                        **Type**                                                         | **Required** |                          **Default value**                          | **Description**                                                              |
-|:----------:|:-----------------------------------------------------------------------------------------------------------------------:| :----------: |:-------------------------------------------------------------------:|------------------------------------------------------------------------------|
-|  timeout   |                                                         number                                                          |     true     |                                  -                                  | Activity Timeout in milliseconds                                             |
-| postAction |                                                       () => void;                                                       |     true     |                                  -                                  | It will be called when the user becomes inactive, and the timeout is reached |
-| isEnabled  |                                                         boolean                                                         |    false     |                                true                                 | Enable/Disable the active session feature                                    |
-| preAction  |                                                       () => void;                                                       |    false     |                                  -                                  | It will be called when the component mounts                                  |
-|  children  |                                                        ReactNode                                                        |    false     |                                  -                                  | Your components / pages                                                      |
-|   events   | [EventType](https://github.com/crazy-slot/active-session-library/blob/main/packages/active-session-library/types.ts#L3) |    false     |         ['click', 'mousemove', 'keydown', 'scroll', 'drag']         | The events to watch for activity on                                          |
+| **Props**  |                                                        **Type**                                                         | **Required** |                  **Default value**                  | **Description**                                                              |
+| :--------: | :---------------------------------------------------------------------------------------------------------------------: | :----------: | :-------------------------------------------------: | ---------------------------------------------------------------------------- |
+|  timeout   |                                                         number                                                          |     true     |                          -                          | Activity Timeout in milliseconds                                             |
+| postAction |                                                       () => void;                                                       |     true     |                          -                          | It will be called when the user becomes inactive, and the timeout is reached |
+| isEnabled  |                                                         boolean                                                         |    false     |                        true                         | Enable/Disable the active session feature                                    |
+| preAction  |                                                       () => void;                                                       |    false     |                          -                          | It will be called when the component mounts                                  |
+|  children  |                                                        ReactNode                                                        |    false     |                          -                          | Your components / pages                                                      |
+|   events   | [EventType](https://github.com/crazy-slot/active-session-library/blob/main/packages/active-session-library/types.ts#L3) |    false     | ['click', 'mousemove', 'keydown', 'scroll', 'drag'] | The events to watch for activity on                                          |
 
 ### Changelog
 
